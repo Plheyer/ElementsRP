@@ -1,0 +1,54 @@
+<div class="player-view">
+    <div class="header">
+        <div class="profile-card" [style.borderColor]="player()?.color">
+            <span class="title">{{ player()?.name }}</span>
+        </div>
+    </div>
+    <div class="content">
+        <div class="stats">
+            <div class="profile-container">
+                <p>Points d'expérience</p>
+                <div class="exp-section">
+                    <input
+                        type="number"
+                        class="kp-value"
+                        min="0"
+                        [value]="player()?.experience ?? 0"
+                        readonly
+                    />
+                </div>
+
+                <div class="exp-bar-container">
+                    <div class="exp-bar-bg">
+                        <div
+                            class="exp-bar-fill"
+                            [style.width.%]="xpProgress()"
+                            [style.background-color]="player()?.color"
+                        ></div>
+                    </div>
+                    <div class="exp-graduations">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+
+                <p>Points de savoir</p>
+                <div class="kp-container">
+                    <input
+                        type="number"
+                        class="kp-value"
+                        min="0"
+                        [value]="player()?.knowledgePoints ?? 0"
+                        readonly
+                    />
+                </div>
+            </div>
+        </div>
+        <div class="graph">
+            <app-graph></app-graph>
+        </div>
+    </div>
+</div>

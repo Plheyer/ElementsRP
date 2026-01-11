@@ -1,0 +1,53 @@
+<div class="profile-container">
+    <div class="profile-card" [style.borderColor]="player().color">
+        <span class="title">{{ player().name }}</span>
+    </div>
+    <p>Exp</p>
+    <div class="exp-section">
+        <input
+            type="number"
+            class="kp-value"
+            min="0"
+            [formControl]="experienceControl"
+        />
+        <button class="btn-validate" (click)="addXP()">✅</button>
+    </div>
+
+    <div class="exp-bar-container">
+        <div class="exp-value">
+            {{ player().experience % 100 }}
+        </div>
+        <div class="exp-bar-bg">
+            <div
+                class="exp-bar-fill"
+                [style.width.%]="xpProgress()"
+                [style.background-color]="player().color"
+            ></div>
+        </div>
+        <div class="exp-graduations">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <p>Points de savoir</p>
+    <div class="kp-container">
+        <button (click)="increaseKP()">+</button>
+        <input
+            type="number"
+            class="kp-value"
+            min="0"
+            [value]="player().knowledgePoints ?? 0"
+            (change)="
+                updateKnowledgePoints.emit({
+                    playerId: player().id,
+                    value: $event.target.valueAsNumber
+                })
+            "
+        />
+        <button (click)="decreaseKP()">-</button>
+    </div>
+</div>

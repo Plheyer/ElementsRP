@@ -1,0 +1,39 @@
+<div class="setup-container">
+    <h1>Configuration du Joueur</h1>
+
+    <!-- NAME -->
+    <div class="form-group">
+        <label>Nom du Profil</label>
+        <input
+            type="text"
+            [formControl]="playerName"
+            placeholder="Entrez votre nom"
+        />
+
+        @if (nameError()) {
+        <p class="error">{{ nameError() }}</p>
+        }
+    </div>
+
+    <!-- COLOR -->
+    <div class="form-group">
+        <label>Couleur de la barre d'XP</label>
+
+        <div class="color-row">
+            <input type="color" [formControl]="playerColor" />
+            <div
+                class="color-preview"
+                [style.background]="playerColor.value"
+            ></div>
+        </div>
+    </div>
+
+    <!-- ACTION -->
+    <button
+        class="btn-create"
+        [disabled]="!playerName.valid || !playerColor.valid"
+        (click)="createPlayer()"
+    >
+        Rejoindre
+    </button>
+</div>

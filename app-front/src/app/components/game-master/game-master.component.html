@@ -1,0 +1,41 @@
+<div class="gm">
+    @if (connected()) {
+    <header class="gm-header">
+        <div class="gm-title">
+            <h1>Game<br />Master</h1>
+        </div>
+    </header>
+    <button class="btn-reset" (click)="resetAll()">🔄 Reset All</button>
+
+    @if (players().length > 0) {
+    <div class="players-cards">
+        @for (player of players(); track player.id) {
+        <app-player-card
+            [player]="player"
+            (updateExperience)="addExperience($event.playerId, $event.amount)"
+            (updateKnowledgePoints)="
+                addKnowledgePoints($event.playerId, $event.amount)
+            "
+        ></app-player-card>
+        }
+    </div>
+    } @else {
+    <div class="empty-state">
+        <p>Aucun joueur créé. Créez un joueur depuis la page setup.</p>
+    </div>
+    } } @else {
+    <div class="login-prompt">
+        <p>Entrez le mot de passe pour rejoindre la partie :</p>
+        <input
+            type="password"
+            class="primary-input"
+            [value]="passwordInput"
+            (input)="passwordInput = $any($event.target).value"
+            (keyup.enter)="createGame()"
+        />
+        <button class="primary-button" (click)="createGame()">
+            Se connecter
+        </button>
+    </div>
+    }
+</div>

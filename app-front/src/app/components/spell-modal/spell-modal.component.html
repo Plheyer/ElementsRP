@@ -1,0 +1,19 @@
+<div class="modal-backdrop" (click)="close.emit()">
+    <div class="modal-card moria-citadel" (click)="$event.stopPropagation()">
+        <h2 class="title">{{ spell.name ?? spell.id }}</h2>
+
+        <div class="icon">
+            <img [src]="spell.imageUrl" />
+        </div>
+
+        <p class="description">
+            {{ spell.description }}
+        </p>
+
+        @if (spell.isStar) {
+        <div class="star-info">⭐ Compétence unique</div>
+        }
+
+        <button class="close-btn" (click)="close.emit()">Fermer</button>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="tree-container" #tree>
+    <div class="grid-wrapper">
+        <svg class="links" [attr.width]="gridWidth" [attr.height]="gridHeight">
+            @for (l of links; track $index) {
+            <line
+                [attr.x1]="l.x1"
+                [attr.y1]="l.y1"
+                [attr.x2]="l.x2"
+                [attr.y2]="l.y2"
+            />
+            }
+        </svg>
+
+        <div
+            class="grid"
+            [style.gridTemplateColumns]="'repeat(' + cols + ', 56px)'"
+            [style.gridTemplateRows]="'repeat(' + rows + ', 56px)'"
+            [style.gap.px]="16"
+        >
+            @for (n of spells; track n.id) {
+            <button
+                #nodeEl
+                class="node"
+                [attr.data-id]="n.id"
+                [style.gridRow]="n.row"
+                [style.gridColumn]="n.col"
+                (click)="click(n)"
+            >
+                <img [src]="n.imageUrl" />
+                @if (n.isStar) {
+                <img src="/assets/stars.png" class="star" alt="Icône" />
+                }
+            </button>
+            } @for (e of elements; track e.id) {
+            <img
+                [src]="e.imageUrl"
+                [attr.data-id]="e.id"
+                [style.gridRow]="e.row"
+                [style.gridColumn]="e.col"
+            />
+            }
+        </div>
+    </div>
+</div>
+
+@if (selectedSpell) {
+<app-spell-modal [spell]="selectedSpell" (close)="closeModal()" />
+}

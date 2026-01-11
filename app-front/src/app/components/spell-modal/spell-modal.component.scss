@@ -1,0 +1,58 @@
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: grid;
+    place-items: center;
+    z-index: 2000;
+}
+
+.modal-card {
+    width: 380px;
+    background: #fffdf8;
+    border: 3px solid #111;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    animation: pop 0.15s ease-out;
+}
+
+.title {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.icon img {
+    width: 90px;
+    height: 90px;
+}
+
+.description {
+    margin: 14px 0;
+    font-style: italic;
+}
+
+.star-info {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.close-btn {
+    margin-top: 14px;
+    padding: 6px 14px;
+    border-radius: 8px;
+    border: 2px solid #111;
+    cursor: pointer;
+}
+
+@keyframes pop {
+    from {
+        transform: scale(0.85);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
