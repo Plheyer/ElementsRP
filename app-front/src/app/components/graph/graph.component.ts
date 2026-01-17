@@ -21,6 +21,14 @@ export class GraphComponent implements AfterViewInit {
     cols = 32;
     rows = 10;
 
+    zoom = 1;
+    readonly MIN_ZOOM = 0.4;
+    readonly MAX_ZOOM = 2.5;
+    readonly ZOOM_STEP = 0.1;
+    private pinchStartDist = 0;
+    private pinchStartZoom = 1;
+    private scrollRaf = 0;
+
     spells = SPELLS;
 
     links: { x1: number; y1: number; x2: number; y2: number }[] = [];
@@ -42,26 +50,37 @@ export class GraphComponent implements AfterViewInit {
     ngAfterViewInit() {
         requestAnimationFrame(() => this.buildLinks());
 
+        const tree = this.treeEl.nativeElement;
+
         const ro = new ResizeObserver(() => this.buildLinks());
-        ro.observe(this.treeEl.nativeElement);
+        ro.observe(tree);
+
+        tree.addEventListener(
+            'scroll',
+            () => {
+                if (this.scrollRaf) return;
+
+                this.scrollRaf = requestAnimationFrame(() => {
+                    this.buildLinks();
+                    this.scrollRaf = 0;
+                });
+            },
+            { passive: true }
+        );
     }
 
-    @HostListener('window:resize')
-    onResize() {
-        clearTimeout(this.resizeTimer);
-        this.resizeTimer = window.setTimeout(() => this.buildLinks(), 50);
-    }
     buildLinks() {
-        const treeRect = this.treeEl.nativeElement.getBoundingClientRect();
+        const tree = this.treeEl.nativeElement;
+
         const pos = new Map<string, { x: number; y: number }>();
 
         this.nodeEls.forEach((el) => {
             const id = el.nativeElement.dataset['id']!;
-            const r = el.nativeElement.getBoundingClientRect();
+            const node = el.nativeElement;
 
             pos.set(id, {
-                x: r.left - treeRect.left + r.width / 2,
-                y: r.top - treeRect.top + r.height / 2,
+                x: node.offsetLeft + node.offsetWidth / 2,
+                y: node.offsetTop + node.offsetHeight / 2,
             });
         });
 
@@ -93,5 +112,62 @@ export class GraphComponent implements AfterViewInit {
 
     closeModal() {
         this.selectedSpell = null;
+    }
+
+    @HostListener('window:resize')
+    onResize() {
+        clearTimeout(this.resizeTimer);
+    }
+
+    @HostListener('wheel', ['$event'])
+    onWheel(e: WheelEvent) {
+        if (!e.ctrlKey) return; // ctrl + wheel = zoom
+        e.preventDefault();
+
+        const delta = e.deltaY < 0 ? this.ZOOM_STEP : -this.ZOOM_STEP;
+        this.zoom = Math.min(
+            this.MAX_ZOOM,
+            Math.max(this.MIN_ZOOM, this.zoom + delta)
+        );
+    }
+    @HostListener('touchstart', ['$event'])
+    onTouchStart(e: TouchEvent) {
+        if (e.touches.length === 2) {
+            e.preventDefault();
+
+            this.pinchStartDist = this.getTouchDistance(e);
+            this.pinchStartZoom = this.zoom;
+        }
+    }
+    @HostListener('touchmove', ['$event'])
+    onTouchMove(e: TouchEvent) {
+        if (e.touches.length !== 2) return;
+
+        e.preventDefault();
+
+        const dist = this.getTouchDistance(e);
+        const rawScale = dist / this.pinchStartDist;
+
+        const DAMPING = 0.25;
+        const smoothScale = 1 + (rawScale - 1) * DAMPING;
+
+        this.zoom = Math.min(
+            this.MAX_ZOOM,
+            Math.max(this.MIN_ZOOM, this.pinchStartZoom * smoothScale)
+        );
+    }
+
+    zoomIn() {
+        this.zoom = Math.min(this.MAX_ZOOM, this.zoom + this.ZOOM_STEP);
+    }
+
+    zoomOut() {
+        this.zoom = Math.max(this.MIN_ZOOM, this.zoom - this.ZOOM_STEP);
+    }
+    private getTouchDistance(e: TouchEvent): number {
+        const [a, b] = [e.touches[0], e.touches[1]];
+        const dx = a.clientX - b.clientX;
+        const dy = a.clientY - b.clientY;
+        return Math.hypot(dx, dy);
     }
 }

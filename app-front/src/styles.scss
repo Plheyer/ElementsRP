@@ -4,8 +4,16 @@ body {
     font-family: "Helvetica", sans-serif;
 }
 
-.moria-citadel {
-    font-family: "Moria Citadel", sans-serif;
+@font-face {
+    font-family: "Macondo";
+    src: url("/assets/Macondo-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.macondo {
+    font-family: "Macondo", sans-serif;
 }
 
 .primary-button {

@@ -10,7 +10,7 @@ export const SPELLS: Spell[] = [
         description: "Génère un petit courant d'air avec sa paume de main",
         dependencies: [],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/air/1.png',
     },
     {
         id: 'air-2',
@@ -20,7 +20,7 @@ export const SPELLS: Spell[] = [
         description: 'Chaque coup porté provoque une rafale de vent',
         dependencies: ['air-1'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/air/2.png',
     },
     {
         id: 'air-3',
@@ -30,7 +30,7 @@ export const SPELLS: Spell[] = [
         description: "Permet de contrôler l'air",
         dependencies: ['air-2'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/air/3.png',
     },
     {
         id: 'air-4',
@@ -40,7 +40,7 @@ export const SPELLS: Spell[] = [
         description: 'Génère un tourbillon de vent fort',
         dependencies: ['air-3'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/air/4.png',
     },
     {
         id: 'air-5',
@@ -50,7 +50,7 @@ export const SPELLS: Spell[] = [
         description: "Permet de s'envoler à volonté",
         dependencies: ['air-4'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/air/5.png',
     },
     {
         id: 'air-6a',
@@ -61,7 +61,7 @@ export const SPELLS: Spell[] = [
             'Si du feu est présent, permet de créer une tornade de feu',
         dependencies: ['air-5'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/air/6a.png',
     },
     {
         id: 'air-6b',
@@ -72,7 +72,7 @@ export const SPELLS: Spell[] = [
             "Si de l'eau est présente, permet de créer une tornade d'eau",
         dependencies: ['air-5'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/air/6b.png',
     },
     {
         id: 'air-6c',
@@ -83,7 +83,7 @@ export const SPELLS: Spell[] = [
             'Si un courant électrique est présent, permet de créer une tornade orageuse',
         dependencies: ['air-5'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/air/6c.png',
     },
     {
         id: 'air-6d',
@@ -93,7 +93,7 @@ export const SPELLS: Spell[] = [
         description: 'Permet de générer un cyclone destructeur',
         dependencies: ['air-5'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/air/6d.png',
     },
     {
         id: 'air-7a',
@@ -104,7 +104,7 @@ export const SPELLS: Spell[] = [
         dependencies: ['air-6a'],
         isStar: true,
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/air/7a.png',
     },
     {
         id: 'air-7b',
@@ -115,7 +115,7 @@ export const SPELLS: Spell[] = [
         dependencies: ['air-6b'],
         isStar: true,
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/air/7b.png',
     },
     {
         id: 'air-7c',
@@ -126,7 +126,7 @@ export const SPELLS: Spell[] = [
         dependencies: ['air-6c'],
         isStar: true,
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/air/7c.png',
     },
     {
         id: 'air-7d',
@@ -138,7 +138,7 @@ export const SPELLS: Spell[] = [
         dependencies: ['air-6d'],
         isStar: true,
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/air/7d.png',
     },
 
     // NATURE (col 6-8)
@@ -150,7 +150,7 @@ export const SPELLS: Spell[] = [
         description: 'Créer une fleur au choix dans le creux de la main',
         dependencies: [],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/nature/1.png',
     },
     {
         id: 'nature-2',
@@ -161,7 +161,7 @@ export const SPELLS: Spell[] = [
             "Peut faire grandir n'importe quel végétal beaucoup + vite au touché",
         dependencies: ['nature-1'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/nature/2.png',
     },
     {
         id: 'nature-3',
@@ -172,7 +172,7 @@ export const SPELLS: Spell[] = [
             'Permet de ressentir la vie circuler dans toute chose vivante, même à distance',
         dependencies: ['nature-2'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/nature/3.png',
     },
     {
         id: 'nature-4',
@@ -182,7 +182,7 @@ export const SPELLS: Spell[] = [
         description: 'Contrôle de la végétation environnante',
         dependencies: ['nature-3'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/nature/4.png',
     },
     {
         id: 'nature-5',
@@ -193,7 +193,7 @@ export const SPELLS: Spell[] = [
             "Le corps peut devenir épineux à volonté, blessant tout ennemis l'attaquant physiquement",
         dependencies: ['nature-4'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/nature/5.png',
     },
     {
         id: 'nature-6',
@@ -204,7 +204,7 @@ export const SPELLS: Spell[] = [
             'Génère un champ végétalisé dans un rayon de 25m tout autour de soit',
         dependencies: ['nature-5'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/nature/6.png',
     },
     {
         id: 'nature-7',
@@ -214,7 +214,7 @@ export const SPELLS: Spell[] = [
         description: 'Soigne toute chose vivante au touché',
         dependencies: ['nature-6'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/nature/7.png',
     },
     {
         id: 'nature-8a',
@@ -224,7 +224,7 @@ export const SPELLS: Spell[] = [
         description: 'Fais pousser des plantes venimeuses',
         dependencies: ['nature-7'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/nature/8a.png',
     },
     {
         id: 'nature-8b',
@@ -235,7 +235,7 @@ export const SPELLS: Spell[] = [
             'Génères des ronces depuis ses mains, utilisables comme fouets puissants',
         dependencies: ['nature-7'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/nature/8b.png',
     },
     {
         id: 'nature-9a',
@@ -245,7 +245,7 @@ export const SPELLS: Spell[] = [
         description: 'Rend la personne immunisé aux poisons',
         dependencies: ['nature-8a'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/nature/9a.png',
     },
     {
         id: 'nature-9b',
@@ -255,7 +255,7 @@ export const SPELLS: Spell[] = [
         description: 'La végétation créée devient autonome et peut attaquer',
         dependencies: ['nature-8b'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/nature/9b.png',
     },
     {
         id: 'nature-10a',
@@ -267,7 +267,7 @@ export const SPELLS: Spell[] = [
         dependencies: ['nature-9a'],
         isStar: true,
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/nature/10a.png',
     },
     {
         id: 'nature-10b',
@@ -278,7 +278,7 @@ export const SPELLS: Spell[] = [
         dependencies: ['nature-9b'],
         isStar: true,
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/nature/10b.png',
     },
 
     // ELECTRICITY (col 9-11)
@@ -290,7 +290,7 @@ export const SPELLS: Spell[] = [
         description: 'Peut donner des coups de jus',
         dependencies: [],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/electricity/1.png',
     },
     {
         id: 'electricity-2',
@@ -301,7 +301,7 @@ export const SPELLS: Spell[] = [
             'Permet de créer du bruits entre les doigts, comme des petits chocs électriques',
         dependencies: ['electricity-1'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/electricity/2.png',
     },
     {
         id: 'electricity-3',
@@ -311,7 +311,7 @@ export const SPELLS: Spell[] = [
         description: "Les sens de l'utilisateur s'améliorent grandement",
         dependencies: ['electricity-2'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/electricity/3.png',
     },
     {
         id: 'electricity-4',
@@ -322,7 +322,7 @@ export const SPELLS: Spell[] = [
             "L'utilisateur devient un paratonnerre, et ne prends pas de dégats lié à ça",
         dependencies: ['electricity-3'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/electricity/4.png',
     },
     {
         id: 'electricity-5',
@@ -332,7 +332,7 @@ export const SPELLS: Spell[] = [
         description: 'Permet de lancer de petits éclairs',
         dependencies: ['electricity-4'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/electricity/5.png',
     },
     {
         id: 'electricity-6',
@@ -343,7 +343,7 @@ export const SPELLS: Spell[] = [
             "Permet de stocker de l'électricité dans son corps comme une batterie",
         dependencies: ['electricity-5'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/electricity/6.png',
     },
     {
         id: 'electricity-7',
@@ -354,7 +354,7 @@ export const SPELLS: Spell[] = [
             "Le corps peut se recouvrir d'un champ électrique puissant sur demande",
         dependencies: ['electricity-6'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/electricity/7.png',
     },
     {
         id: 'electricity-8a',
@@ -365,7 +365,7 @@ export const SPELLS: Spell[] = [
             'Permet de placer une tourelle Tesla attaquant avec arcs électriques tout ennemi proche',
         dependencies: ['electricity-7'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/electricity/8a.png',
     },
     {
         id: 'electricity-8b',
@@ -375,7 +375,7 @@ export const SPELLS: Spell[] = [
         description: "Fait tomber la foudre à l'endroit voulu",
         dependencies: ['electricity-7'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/electricity/8b.png',
     },
     {
         id: 'electricity-9a',
@@ -386,7 +386,7 @@ export const SPELLS: Spell[] = [
             "Peut choisir deux points dans l'espace afin d'y placer un piège (arc électrique long)",
         dependencies: ['electricity-8a'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/electricity/9a.png',
     },
     {
         id: 'electricity-9b',
@@ -397,7 +397,7 @@ export const SPELLS: Spell[] = [
             'Peut paralyser temporairement les ennemis en coupant toute activité électrique cérébrale',
         dependencies: ['electricity-8b'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/electricity/9b.png',
     },
     {
         id: 'electricity-10a',
@@ -409,7 +409,7 @@ export const SPELLS: Spell[] = [
         dependencies: ['electricity-9a'],
         isStar: true,
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/electricity/10a.png',
     },
     {
         id: 'electricity-10b',
@@ -420,7 +420,7 @@ export const SPELLS: Spell[] = [
         dependencies: ['electricity-9b'],
         isStar: true,
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/electricity/10b.png',
     },
 
     // WATER (col 13-15, 12 for common)
@@ -432,7 +432,7 @@ export const SPELLS: Spell[] = [
         description: "Génère un peu d'eau potable via la paume de la main",
         dependencies: [],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/water/1.png',
     },
     {
         id: 'water-2',
@@ -442,7 +442,7 @@ export const SPELLS: Spell[] = [
         description: "Transforme l'eau en alcool",
         dependencies: ['water-1'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/water/2.png',
     },
     {
         id: 'water-3',
@@ -452,7 +452,7 @@ export const SPELLS: Spell[] = [
         description: "Permet d'invoquer une zone pluvieuse d'un rayon de 5m",
         dependencies: ['water-2'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/water/3.png',
     },
     {
         id: 'water-4',
@@ -462,7 +462,7 @@ export const SPELLS: Spell[] = [
         description: 'La paume de la main permet de rafraîchir à volonté',
         dependencies: ['water-3'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/water/4.png',
     },
     {
         id: 'water-5',
@@ -472,7 +472,7 @@ export const SPELLS: Spell[] = [
         description: "Permet de lancer un jet d'eau sur 5m",
         dependencies: ['water-4'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/water/5.png',
     },
     {
         id: 'water-6',
@@ -482,7 +482,7 @@ export const SPELLS: Spell[] = [
         description: "Peut créer de bonnes quantité d'eau par les mains",
         dependencies: ['water-5'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/water/6.png',
     },
     {
         id: 'water-7',
@@ -492,7 +492,7 @@ export const SPELLS: Spell[] = [
         description: 'Permet de manipuler les courants aquatiques',
         dependencies: ['water-6'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/water/7.png',
     },
     {
         id: 'water-8a',
@@ -502,7 +502,7 @@ export const SPELLS: Spell[] = [
         description: 'Permet de lancer des éclats de glace',
         dependencies: ['water-7'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/water/8a.png',
     },
     {
         id: 'water-8b',
@@ -512,7 +512,7 @@ export const SPELLS: Spell[] = [
         description: "Créer un jet d'eau allant jusqu'à 25m",
         dependencies: ['water-7'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/water/8b.png',
     },
     {
         id: 'water-9a',
@@ -522,7 +522,7 @@ export const SPELLS: Spell[] = [
         description: "Permet de geler toute chose jusqu'à 15m",
         dependencies: ['water-8a'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/water/9a.png',
     },
     {
         id: 'water-9b',
@@ -533,7 +533,7 @@ export const SPELLS: Spell[] = [
             "Les jets d'eau peuvent atteindre 90.000 PSI (découpe tout ce qui est touché)",
         dependencies: ['water-8b'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/water/9b.png',
     },
     {
         id: 'water-10a',
@@ -544,7 +544,7 @@ export const SPELLS: Spell[] = [
         dependencies: ['water-9a'],
         isStar: true,
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/water/10a.png',
     },
     {
         id: 'water-10b',
@@ -555,7 +555,7 @@ export const SPELLS: Spell[] = [
         dependencies: ['water-9b'],
         isStar: true,
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/water/10b.png',
     },
 
     // FIRE (col 17-19, 16 for common). a and b inverted for layout
@@ -568,7 +568,7 @@ export const SPELLS: Spell[] = [
             'Fais apparaître une flamme au bout du doigt comme un briquet pour éclairer',
         dependencies: [],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/fire/1.png',
     },
     {
         id: 'fire-2',
@@ -578,7 +578,7 @@ export const SPELLS: Spell[] = [
         description: 'La paume de la main peut désormais brûler par contact',
         dependencies: ['fire-1'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/fire/2.png',
     },
     {
         id: 'fire-3',
@@ -588,7 +588,7 @@ export const SPELLS: Spell[] = [
         description: 'Permet de contrôler sa propre température corporelle',
         dependencies: ['fire-2'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/fire/3.png',
     },
     {
         id: 'fire-4',
@@ -598,7 +598,7 @@ export const SPELLS: Spell[] = [
         description: 'Possibilité de lancer des petites flammes sur un mètre',
         dependencies: ['fire-3'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/fire/4.png',
     },
     {
         id: 'fire-5',
@@ -608,7 +608,7 @@ export const SPELLS: Spell[] = [
         description: 'Permet de lancer un bon jet de flammes sur 5 mètres',
         dependencies: ['fire-4'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/fire/5.png',
     },
     {
         id: 'fire-6',
@@ -619,7 +619,7 @@ export const SPELLS: Spell[] = [
             'Les flammes créée deviennent + chaudes, causant + de dégats',
         dependencies: ['fire-5'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/fire/6.png',
     },
     {
         id: 'fire-7',
@@ -630,7 +630,7 @@ export const SPELLS: Spell[] = [
             'Permet de se transformer en torche humaine sans subir de dégats',
         dependencies: ['fire-6'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/fire/7.png',
     },
     {
         id: 'fire-8a',
@@ -641,7 +641,7 @@ export const SPELLS: Spell[] = [
             'Permet de contrôler des feux générer par autrui ainsi que les feux naturels',
         dependencies: ['fire-7'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/fire/8a.png',
     },
     {
         id: 'fire-8b',
@@ -651,7 +651,7 @@ export const SPELLS: Spell[] = [
         description: 'Peut lancer des flammes sur 25m',
         dependencies: ['fire-7'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/fire/8b.png',
     },
     {
         id: 'fire-9a',
@@ -662,7 +662,7 @@ export const SPELLS: Spell[] = [
             "Les flammes créer peuvent devenir des flammes de méthanol (feu invisible à l'oeil nu)",
         dependencies: ['fire-8a'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/fire/9a.png',
     },
     {
         id: 'fire-9b',
@@ -673,7 +673,7 @@ export const SPELLS: Spell[] = [
             "Possibilité de lancer une boule de feu explosant comme une bombe à l'impact",
         dependencies: ['fire-8b'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/fire/9b.png',
     },
     {
         id: 'fire-10a',
@@ -684,7 +684,7 @@ export const SPELLS: Spell[] = [
         dependencies: ['fire-9a'],
         isStar: true,
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/fire/10a.png',
     },
     {
         id: 'fire-10b',
@@ -696,7 +696,7 @@ export const SPELLS: Spell[] = [
         dependencies: ['fire-9b'],
         isStar: true,
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/fire/10b.png',
     },
 
     // EARTH (col 21-23, 20 for common)
@@ -708,7 +708,7 @@ export const SPELLS: Spell[] = [
         description: 'Peut générer des ondes sonores légères',
         dependencies: [],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/earth/1.png',
     },
     {
         id: 'earth-2',
@@ -718,7 +718,7 @@ export const SPELLS: Spell[] = [
         description: 'Peut créer des petits cailloux dans sa main',
         dependencies: ['earth-1'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/earth/2.png',
     },
     {
         id: 'earth-3',
@@ -728,7 +728,7 @@ export const SPELLS: Spell[] = [
         description: "La force de l'utilisateur est augmentée",
         dependencies: ['earth-2'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/earth/3.png',
     },
     {
         id: 'earth-4',
@@ -739,7 +739,7 @@ export const SPELLS: Spell[] = [
             "Génère des murs de roche (2-3m de haut) près de l'utilisateur",
         dependencies: ['earth-3'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/earth/4.png',
     },
     {
         id: 'earth-5',
@@ -750,7 +750,7 @@ export const SPELLS: Spell[] = [
             'Tout le corps peut se renforcer et devenir solide comme la roche',
         dependencies: ['earth-4'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/earth/5.png',
     },
     {
         id: 'earth-6',
@@ -760,7 +760,7 @@ export const SPELLS: Spell[] = [
         description: 'Créer et lance de + grosses roches pointues',
         dependencies: ['earth-5'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/earth/6.png',
     },
     {
         id: 'earth-7',
@@ -771,7 +771,7 @@ export const SPELLS: Spell[] = [
             "Peut soulever le sol autour de soit, dans un rayon de 7m, jusqu'à 5m de haut",
         dependencies: ['earth-6'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/earth/7.png',
     },
     {
         id: 'earth-8a',
@@ -782,7 +782,7 @@ export const SPELLS: Spell[] = [
             'Permet de déplacer la terre (sable mouvement, créer des tunnels, ect)',
         dependencies: ['earth-7'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/earth/8a.png',
     },
     {
         id: 'earth-8b',
@@ -793,7 +793,7 @@ export const SPELLS: Spell[] = [
             "Permet de créer un petit tremblement de terre suffisamment puissant pour faire chuter quelqu'un",
         dependencies: ['earth-7'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/earth/8b.png',
     },
     {
         id: 'earth-9a',
@@ -804,7 +804,7 @@ export const SPELLS: Spell[] = [
             "Transforme en métal tout ce que l'utilisateur touche (métal choisi par l'utilisateur)",
         dependencies: ['earth-8a'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/earth/9a.png',
     },
     {
         id: 'earth-9b',
@@ -814,7 +814,7 @@ export const SPELLS: Spell[] = [
         description: 'Permet de créer un tremblement de terre dévastateur',
         dependencies: ['earth-8b'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/earth/9b.png',
     },
     {
         id: 'earth-10a',
@@ -826,7 +826,7 @@ export const SPELLS: Spell[] = [
         dependencies: ['earth-9a'],
         isStar: true,
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/earth/10a.png',
     },
     {
         id: 'earth-10b',
@@ -838,7 +838,7 @@ export const SPELLS: Spell[] = [
         dependencies: ['earth-9b'],
         isStar: true,
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/earth/10b.png',
     },
 
     // PSYCHIC (col 25-27, 24 for common)
@@ -851,7 +851,7 @@ export const SPELLS: Spell[] = [
             'Permet de comprendre les émotions des autres par le regard',
         dependencies: [],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/psychic/1.png',
     },
     {
         id: 'psychic-2',
@@ -861,7 +861,7 @@ export const SPELLS: Spell[] = [
         description: "L'utilisateur peut lire dans les pensées",
         dependencies: ['psychic-1'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/psychic/2.png',
     },
     {
         id: 'psychic-3',
@@ -871,7 +871,7 @@ export const SPELLS: Spell[] = [
         description: 'Permet la télépathie',
         dependencies: ['psychic-2'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/psychic/3.png',
     },
     {
         id: 'psychic-4',
@@ -882,7 +882,7 @@ export const SPELLS: Spell[] = [
             "Permet la télékinésie sur des petits objets fixes, et jusqu'à 30m devant soit",
         dependencies: ['psychic-3'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/psychic/4.png',
     },
     {
         id: 'psychic-5',
@@ -893,7 +893,7 @@ export const SPELLS: Spell[] = [
             "L'utilisateur obtient un bonus d'intelligence et d'intuition",
         dependencies: ['psychic-4'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/psychic/5.png',
     },
     {
         id: 'psychic-6a',
@@ -903,7 +903,7 @@ export const SPELLS: Spell[] = [
         description: "Permet la manipulation de l'esprit",
         dependencies: ['psychic-5'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/psychic/6a.png',
     },
     {
         id: 'psychic-6b',
@@ -913,7 +913,7 @@ export const SPELLS: Spell[] = [
         description: 'Peut déplacer les choses déjà en mouvement',
         dependencies: ['psychic-5'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/psychic/6b.png',
     },
     {
         id: 'psychic-7a',
@@ -925,7 +925,7 @@ export const SPELLS: Spell[] = [
         dependencies: ['psychic-6a'],
         isStar: true,
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/psychic/7a.png',
     },
     {
         id: 'psychic-7b',
@@ -937,7 +937,7 @@ export const SPELLS: Spell[] = [
         dependencies: ['psychic-6b'],
         isStar: true,
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/psychic/7b.png',
     },
 
     // SUMMONING (col 28-30)
@@ -949,7 +949,7 @@ export const SPELLS: Spell[] = [
         description: 'Permet la communication avec les animaux',
         dependencies: [],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/summoning/1.png',
     },
     {
         id: 'summoning-2',
@@ -959,7 +959,7 @@ export const SPELLS: Spell[] = [
         description: "L'utilisateur peut communiquer avec les morts",
         dependencies: ['summoning-1'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/summoning/2.png',
     },
     {
         id: 'summoning-3',
@@ -969,7 +969,7 @@ export const SPELLS: Spell[] = [
         description: 'Permet de réanimer les morts',
         dependencies: ['summoning-2'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/summoning/3.png',
     },
     {
         id: 'summoning-4',
@@ -979,7 +979,7 @@ export const SPELLS: Spell[] = [
         description: 'Permet la création de sbires autonomes',
         dependencies: ['summoning-3'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/summoning/4.png',
     },
     {
         id: 'summoning-5',
@@ -989,7 +989,7 @@ export const SPELLS: Spell[] = [
         description: "L'utilisateur obtient un bonus extrème en charisme",
         dependencies: ['summoning-4'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/summoning/5.png',
     },
     {
         id: 'summoning-6a',
@@ -1001,7 +1001,7 @@ export const SPELLS: Spell[] = [
         dependencies: ['summoning-5'],
         isStar: true,
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/summoning/6a.png',
     },
     {
         id: 'summoning-6b',
@@ -1012,7 +1012,7 @@ export const SPELLS: Spell[] = [
         dependencies: ['summoning-5'],
         isStar: true,
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/summoning/6b.png',
     },
 
     // COMMON SPELLS
@@ -1025,7 +1025,7 @@ export const SPELLS: Spell[] = [
         description: "Permet d'invoquer un nuage orageux",
         dependencies: ['electricity-4', 'water-3'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/common/1.png',
     },
     {
         // col 12
@@ -1037,7 +1037,7 @@ export const SPELLS: Spell[] = [
             "Permet d'électrocuter une cible et de propager l'électricité à toute chose trempée",
         dependencies: ['electricity-5', 'water-6'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/common/2.png',
     },
     {
         // col 16
@@ -1048,7 +1048,7 @@ export const SPELLS: Spell[] = [
         description: 'Permet de créer une épaisse brume',
         dependencies: ['water-3', 'fire-4'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/common/3.png',
     },
     {
         // col 20
@@ -1059,7 +1059,7 @@ export const SPELLS: Spell[] = [
         description: 'Permet de lancer un jet de lave',
         dependencies: ['fire-4', 'earth-6'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/common/4.png',
     },
     {
         // col 20
@@ -1070,7 +1070,7 @@ export const SPELLS: Spell[] = [
         description: "Créer une éruption volcanique a l'endroit voulu",
         dependencies: ['fire-9a', 'earth-7', 'common-4'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/common/5.png',
     },
     {
         // col 24
@@ -1081,7 +1081,7 @@ export const SPELLS: Spell[] = [
         description: "Permet d'invoquer une pluie violente de météorites",
         dependencies: ['earth-7', 'psychic-4'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/common/6.png',
     },
     {
         // col 16
@@ -1092,6 +1092,6 @@ export const SPELLS: Spell[] = [
         description: "Permet de lancer un jet d'eau bouillante",
         dependencies: ['water-5', 'fire-5'],
         name: '',
-        imageUrl: './assets/logo.png',
+        imageUrl: './assets/spells/common/7.png',
     },
 ];
