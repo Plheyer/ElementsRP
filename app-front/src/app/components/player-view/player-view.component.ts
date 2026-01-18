@@ -51,7 +51,6 @@ export class PlayerViewComponent {
                                 (p) => p.name === this.playerId()
                             ) || null
                         );
-                        console.log(this.player());
 
                         break;
                     case 'error':
