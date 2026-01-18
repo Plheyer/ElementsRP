@@ -25,7 +25,7 @@ export class PlayerSetupComponent {
                 Validators.required,
                 Validators.minLength(1),
                 Validators.maxLength(20),
-                Validators.pattern(/^[a-zA-Z0-9_-]+$/),
+                Validators.pattern(/^[^\p{So}\p{Cs}]+$/u),
             ],
         }),
         color: new FormControl('#ff4500', { nonNullable: true }),
@@ -39,7 +39,7 @@ export class PlayerSetupComponent {
         if (c.hasError('minlength')) return 'Minimum 3 caractères';
         if (c.hasError('maxlength')) return 'Maximum 20 caractères';
         if (c.hasError('pattern'))
-            return 'Caractères autorisés : a-z A-Z 0-9 _ -';
+            return 'Caractères autorisés : caractères ASCII standards';
 
         return null;
     });
