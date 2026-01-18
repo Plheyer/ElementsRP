@@ -7,7 +7,10 @@
         "start:server": "ts-node app-back/index.ts",
         "start:client": "cd app-front && ng serve",
         "build:server": "tsc -p app-back/tsconfig.json",
-        "build:client": "ng build app-front"
+        "build:client": "ng build app-front",
+        "build:shared": "npx tsc -p app-shared/tsconfig.json",
+        "build:server:prod": "npm install && npm run build:shared && npx tsc -p app-back/tsconfig.json && npm ci --omit=dev",
+        "start:server:prod": "node app-back/dist/app-back/index.js"
     },
     "private": true,
     "dependencies": {
@@ -20,11 +23,12 @@
         "@angular/platform-browser-dynamic": "^17.3.0",
         "@angular/router": "^17.3.0",
         "@elementsrp/shared": "^0.0.1",
+        "@types/ws": "^8.18.0",
         "party-js": "^2.2.0",
         "rxjs": "~7.8.0",
         "tslib": "^2.3.0",
         "ws": "^8.18.0",
-        "@types/ws": "^8.18.0"
+        "typescript": "^5.4.2"
     },
     "devDependencies": {
         "@angular-devkit/build-angular": "^17.3.17",
