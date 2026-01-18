@@ -1,2 +1,2 @@
-export const WS_PORT = 8080;
-export const BASE_PATH = `https://elementsrp-front.onrender.com/`;
+export const WS_PORT = 443;
+export const BASE_PATH = `elementsrp-front.onrender.com`;
