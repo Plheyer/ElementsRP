@@ -7,7 +7,7 @@
         "start:server": "ts-node app-back/index.ts",
         "start:client": "cd app-front && ng serve",
         "build:server": "tsc -p app-back/tsconfig.json",
-        "build:client": "ng build app-front",
+        "build:client": "cd app-front && ng build --configuration production",
         "build:shared": "npx tsc -p app-shared/tsconfig.json",
         "build:server:prod": "npm install && npm run build:shared && npx tsc -p app-back/tsconfig.json && npm ci --omit=dev",
         "start:server:prod": "node app-back/dist/app-back/index.js"
