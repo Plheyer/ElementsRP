@@ -140,7 +140,7 @@ export class GraphComponent implements AfterViewInit {
     familyColor(family: string): string {
         switch (family) {
             case 'air':
-                return 'rgb(213, 237, 249)';
+                return 'rgb(188, 243, 236)';
             case 'earth':
                 return 'rgb(210, 201, 184)';
             case 'electricity':

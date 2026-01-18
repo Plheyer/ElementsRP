@@ -1,6 +1,11 @@
 import { Component, computed, effect, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormControl, Validators } from '@angular/forms';
+import {
+    ReactiveFormsModule,
+    FormControl,
+    Validators,
+    FormGroup,
+} from '@angular/forms';
 import { WebsocketService } from '../../services/websocket.service';
 import { Router } from '@angular/router';
 import { NotificationService } from '../../services/notification.service';
@@ -13,22 +18,21 @@ import { NotificationService } from '../../services/notification.service';
     styleUrl: './player-setup.component.scss',
 })
 export class PlayerSetupComponent {
-    readonly playerName = new FormControl('', {
-        nonNullable: true,
-        validators: [
-            Validators.required,
-            Validators.minLength(1),
-            Validators.maxLength(20),
-            Validators.pattern(/^[a-zA-Z0-9_-]+$/),
-        ],
-    });
-
-    readonly playerColor = new FormControl('#ff4500', {
-        nonNullable: true,
+    readonly form = new FormGroup({
+        name: new FormControl('', {
+            nonNullable: true,
+            validators: [
+                Validators.required,
+                Validators.minLength(1),
+                Validators.maxLength(20),
+                Validators.pattern(/^[a-zA-Z0-9_-]+$/),
+            ],
+        }),
+        color: new FormControl('#ff4500', { nonNullable: true }),
     });
 
     readonly nameError = computed(() => {
-        const c = this.playerName;
+        const c = this.form.controls.name;
         if (!c.touched) return null;
 
         if (c.hasError('required')) return 'Le nom est requis';
@@ -40,9 +44,6 @@ export class PlayerSetupComponent {
         return null;
     });
 
-    readonly isValid = computed(
-        () => this.playerName.valid && this.playerColor.valid
-    );
     private joinAcknowledged = signal(false);
 
     constructor(
@@ -60,7 +61,7 @@ export class PlayerSetupComponent {
                 switch (msg.type) {
                     case 'players':
                         this.router.navigate([
-                            `/player/${this.playerName.value}`,
+                            `/player/${this.form.controls.name.value}`,
                         ]);
                         break;
                     case 'error':
@@ -75,13 +76,15 @@ export class PlayerSetupComponent {
         this.websocketService.connect();
     }
 
-    createPlayer(): void {
-        if (!this.isValid()) return;
+    ngAfterViewInit() {
+        document.getElementById('player-name')?.focus();
+    }
 
+    createPlayer(): void {
         const player = {
             id: crypto.randomUUID(),
-            name: this.playerName.value,
-            color: this.playerColor.value,
+            name: this.form.controls.name.value,
+            color: this.form.controls.color.value,
             experience: 0,
             knowledgePoints: 0,
             spells: {},

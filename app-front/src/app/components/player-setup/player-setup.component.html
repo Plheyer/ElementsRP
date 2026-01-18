@@ -1,39 +1,37 @@
-<div class="setup-container">
+<form
+    class="setup-container"
+    (ngSubmit)="createPlayer()"
+    [formGroup]="form"
+    novalidate
+>
     <h1>Configuration du Joueur</h1>
 
     <!-- NAME -->
     <div class="form-group">
-        <label>Nom du Profil</label>
+        <label for="player-name">Nom du Profil</label>
         <input
+            id="player-name"
             type="text"
-            [formControl]="playerName"
+            formControlName="name"
             placeholder="Entrez votre nom"
         />
 
         @if (nameError()) {
-        <p class="error">{{ nameError() }}</p>
+        <p class="error" role="alert">{{ nameError() }}</p>
         }
     </div>
 
     <!-- COLOR -->
     <div class="form-group">
-        <label>Couleur de la barre d'XP</label>
+        <label for="player-color">Couleur de la barre d'XP</label>
 
         <div class="color-row">
-            <input type="color" [formControl]="playerColor" />
-            <div
-                class="color-preview"
-                [style.background]="playerColor.value"
-            ></div>
+            <input id="player-color" type="color" formControlName="color" />
         </div>
     </div>
 
     <!-- ACTION -->
-    <button
-        class="btn-create"
-        [disabled]="!playerName.valid || !playerColor.valid"
-        (click)="createPlayer()"
-    >
+    <button class="btn-create" type="submit" [disabled]="form.invalid">
         Rejoindre
     </button>
-</div>
+</form>

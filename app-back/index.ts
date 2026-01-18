@@ -4,12 +4,14 @@ import {
     ClientMessage,
     Player,
     ServerMessage,
-    Spell,
     SPELLS,
     BASE_PATH,
     WS_PORT,
 } from '@elementsrp/shared';
-import { canBuySpell, checkStarSpellRequirements } from 'app-shared/helpers';
+import {
+    canBuySpell,
+    checkStarSpellRequirements,
+} from '@elementsrp/shared/helpers';
 
 const wss = new WebSocketServer({ port: WS_PORT });
 
@@ -61,6 +63,7 @@ function handleMessage(ws: WebSocket, msg: ClientMessage) {
             break;
         case 'join':
             if (!requireGame(ws)) return;
+            if (!requireUniqueName(ws, msg.player.name)) return;
 
             upsertPlayer(msg.player);
             sendToGM({ type: 'players', players: gameState.players });
@@ -128,6 +131,15 @@ function upsertPlayer(player: Player) {
     const index = gameState.players.findIndex((p) => p.id === player.id);
     if (index >= 0) gameState.players[index] = player;
     else gameState.players.push(player);
+}
+
+function requireUniqueName(ws: WebSocket, playerName: string): boolean {
+    const player = gameState.players.find((p) => p.name === playerName);
+    if (player) {
+        send(ws, { type: 'error', message: 'Nom déjà utilisé.' });
+        return false;
+    }
+    return true;
 }
 
 function sendToGM(message: ServerMessage) {
