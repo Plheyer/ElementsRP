@@ -12,10 +12,29 @@
     background: #fffdf8;
     border: 3px solid #111;
     border-radius: 16px;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
     animation: pop 0.15s ease-out;
+    position: relative;
+}
+
+.close-cross {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+    color: #333;
+    transition: color 0.2s;
+
+    &:hover {
+        color: #000;
+    }
 }
 
 .title {
@@ -23,9 +42,19 @@
     margin-bottom: 10px;
 }
 
-.icon img {
-    width: 90px;
-    height: 90px;
+.icon {
+    img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .star {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+        pointer-events: none;
+        position: absolute;
+    }
 }
 
 .description {
@@ -36,14 +65,31 @@
 .star-info {
     margin-top: 10px;
     font-weight: bold;
+    img {
+        width: 70px;
+        height: 70px;
+        vertical-align: middle;
+    }
 }
 
-.close-btn {
+.buy-btn {
     margin-top: 14px;
     padding: 6px 14px;
     border-radius: 8px;
     border: 2px solid #111;
     cursor: pointer;
+    width: 100%;
+    background-color: transparent;
+    padding: 10px 0;
+    transition: background-color 0.2s ease-in-out;
+    &:disabled {
+        cursor: not-allowed;
+        opacity: 0.6;
+    }
+    &:hover:not(:disabled) {
+        background-color: rgb(224, 224, 224);
+        transition: background-color 0.2s ease-in-out;
+    }
 }
 
 @keyframes pop {
@@ -55,4 +101,13 @@
         transform: scale(1);
         opacity: 1;
     }
+}
+
+.separator {
+    height: 3px;
+    border-radius: 15px;
+    background-color: #000;
+    margin: 10px 0;
+    width: 100%;
+    box-sizing: border-box;
 }

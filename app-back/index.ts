@@ -9,6 +9,7 @@ import {
     BASE_PATH,
     WS_PORT,
 } from '@elementsrp/shared';
+import { canBuySpell, checkStarSpellRequirements } from 'app-shared/helpers';
 
 const wss = new WebSocketServer({ port: WS_PORT });
 
@@ -68,7 +69,7 @@ function handleMessage(ws: WebSocket, msg: ClientMessage) {
 
         case 'buy:spell':
             if (!requireGame(ws)) return;
-            player = requirePlayer(ws, msg.playerId);
+            player = requirePlayerByName(ws, msg.playerId);
             if (!player) return;
 
             buySpell(player, msg, ws);
@@ -102,7 +103,7 @@ function handleMessage(ws: WebSocket, msg: ClientMessage) {
             if (!player) return;
 
             player.knowledgePoints ??= 0;
-            player.knowledgePoints += msg.amount;
+            player.knowledgePoints += msg.amount || 0;
 
             broadcast({ type: 'players', players: gameState.players });
             break;
@@ -136,26 +137,6 @@ function sendToGM(message: ServerMessage) {
     });
 }
 
-function canBuySpell(player: Player, spell: Spell): boolean {
-    for (const depId of spell.dependencies) {
-        if (!player.spells[depId]) return false;
-    }
-    return true;
-}
-
-function checkStarSpellRequirements(player: Player, spell: Spell): boolean {
-    if (!spell.isStar) return false;
-    const familyStars = SPELLS.filter(
-        (s) => s.family === spell.family && !!s.isStar
-    );
-    for (const starSpell of familyStars) {
-        if (player.spells[starSpell.id]) {
-            return false;
-        }
-    }
-    return true;
-}
-
 function buySpell(player: Player, msg: BuySpellMessage, ws: WebSocket) {
     // Sort existe ?
     const spell = SPELLS.find((s) => s.id === msg.spellId);
@@ -178,7 +159,7 @@ function buySpell(player: Player, msg: BuySpellMessage, ws: WebSocket) {
         return;
     }
     // Sort star possible à l'achat ?
-    if (checkStarSpellRequirements(player, spell)) {
+    if (!checkStarSpellRequirements(player, spell)) {
         send(ws, {
             type: 'error',
             message: 'Vous avez déjà acquis un sort étoilé de cette famille.',

@@ -16,6 +16,7 @@ export class PlayerCardComponent {
     updateKnowledgePoints = output<{ playerId: string; amount: number }>();
 
     experienceControl = new FormControl<number>(0, { nonNullable: true });
+    knowledgePointsControl = new FormControl<number>(0, { nonNullable: true });
 
     xpProgress = computed(() => {
         const xp = this.player().experience ?? 0;
@@ -44,6 +45,15 @@ export class PlayerCardComponent {
         this.updateKnowledgePoints.emit({
             playerId: this.player().id,
             amount: -1,
+        });
+    }
+
+    onKnowledgeInput() {
+        const newValue = this.knowledgePointsControl.value ?? 0;
+
+        this.updateKnowledgePoints.emit({
+            playerId: this.player().id,
+            amount: newValue || 0,
         });
     }
 }

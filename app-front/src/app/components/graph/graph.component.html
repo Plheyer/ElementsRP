@@ -1,14 +1,13 @@
 <div class="tree-container" #tree>
+    <div class="zoom-controls">
+        <button (click)="zoomOut()">-</button>
+        <button (click)="zoomIn()">+</button>
+    </div>
     <div
         class="zoom-layer"
         [style.transform]="'scale(' + zoom + ')'"
         [style.transformOrigin]="'0 0'"
     >
-        <div class="zoom-controls">
-            <button (click)="zoomOut()">-</button>
-            <button (click)="zoomIn()">+</button>
-        </div>
-
         <div class="grid-wrapper">
             <svg
                 class="links"
@@ -38,6 +37,7 @@
                     [attr.data-id]="n.id"
                     [style.gridRow]="n.row"
                     [style.gridColumn]="n.col"
+                    [style.--node-bg]="nodeColor(n)"
                     (click)="click(n)"
                 >
                     <img [src]="n.imageUrl" />
@@ -45,7 +45,7 @@
                     <img
                         src="/assets/spells/stars.png"
                         class="star"
-                        alt="Icône"
+                        alt="Étoile"
                     />
                     }
                 </button>
@@ -63,5 +63,10 @@
 </div>
 
 @if (selectedSpell) {
-<app-spell-modal [spell]="selectedSpell" (close)="closeModal()" />
+<app-spell-modal
+    [spell]="selectedSpell"
+    (close)="closeModal()"
+    (buy)="buySpell($event)"
+    [canBuy]="canBuy.bind(this)"
+/>
 }

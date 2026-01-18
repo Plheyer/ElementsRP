@@ -3,7 +3,7 @@
         <span class="title">{{ player().name }}</span>
     </div>
     <p>Exp</p>
-    <div class="exp-section">
+    <div class="btn-validate-section">
         <input
             type="number"
             class="kp-value"
@@ -36,18 +36,17 @@
     <p>Points de savoir</p>
     <div class="kp-container">
         <button (click)="increaseKP()">+</button>
-        <input
-            type="number"
-            class="kp-value"
-            min="0"
-            [value]="player().knowledgePoints ?? 0"
-            (change)="
-                updateKnowledgePoints.emit({
-                    playerId: player().id,
-                    value: $event.target.valueAsNumber
-                })
-            "
-        />
+        <div class="btn-validate-section align-right">
+            <input
+                type="number"
+                class="kp-value"
+                min="0"
+                [formControl]="knowledgePointsControl"
+            />
+            <button class="btn-validate" (click)="onKnowledgeInput()">
+                ✅
+            </button>
+        </div>
         <button (click)="decreaseKP()">-</button>
     </div>
 </div>

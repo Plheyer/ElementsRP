@@ -192,3 +192,24 @@
         }
     }
 }
+
+@media (max-width: 900px) {
+    .player-view {
+        .content {
+            flex-direction: column;
+            height: auto;
+            gap: 16px;
+
+            .stats {
+                flex: none;
+                width: 100%;
+            }
+
+            .graph {
+                flex: none;
+                width: 100%;
+                height: 60vh;
+            }
+        }
+    }
+}

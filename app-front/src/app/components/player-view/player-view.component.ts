@@ -51,6 +51,8 @@ export class PlayerViewComponent {
                                 (p) => p.name === this.playerId()
                             ) || null
                         );
+                        console.log(this.player());
+
                         break;
                     case 'error':
                         this.notificationService.show(msg.message, {
@@ -71,6 +73,14 @@ export class PlayerViewComponent {
                     playerId: this.playerId(),
                 });
             }
+        });
+    }
+
+    buy(spellId: string) {
+        this.wsService.send({
+            type: 'buy:spell',
+            playerId: this.playerId(),
+            spellId: spellId,
         });
     }
 }

@@ -3,12 +3,15 @@ import {
     Component,
     ElementRef,
     HostListener,
+    input,
+    output,
     QueryList,
     ViewChild,
     ViewChildren,
 } from '@angular/core';
-import { Spell, SPELLS, ELEMENTS } from '@elementsrp/shared';
+import { Spell, SPELLS, ELEMENTS, Player } from '@elementsrp/shared';
 import { SpellModalComponent } from '../spell-modal/spell-modal.component';
+import { canBuySpell, checkStarSpellRequirements } from 'app-shared/helpers';
 
 @Component({
     selector: 'app-graph',
@@ -35,6 +38,9 @@ export class GraphComponent implements AfterViewInit {
     private resizeTimer?: number;
     selectedSpell: Spell | null = null;
     elements = ELEMENTS;
+
+    player = input.required<Player | null>();
+    buy = output<string>();
 
     get gridWidth() {
         return this.cols * 56 + (this.cols - 1) * 16;
@@ -112,6 +118,65 @@ export class GraphComponent implements AfterViewInit {
 
     closeModal() {
         this.selectedSpell = null;
+    }
+
+    canBuy(spellId: string): boolean {
+        const player = this.player();
+        const spell = this.spells.find((s) => s.id === spellId);
+        if (!player || !spell) return false;
+
+        return (
+            !player.spells[spellId] &&
+            canBuySpell(player, spell) &&
+            checkStarSpellRequirements(player, spell)
+        );
+    }
+
+    buySpell(spellId: string) {
+        this.buy.emit(spellId);
+        this.closeModal();
+    }
+
+    familyColor(family: string): string {
+        switch (family) {
+            case 'air':
+                return 'rgb(213, 237, 249)';
+            case 'earth':
+                return 'rgb(210, 201, 184)';
+            case 'electricity':
+                return 'rgb(251, 240, 202)';
+            case 'fire':
+                return 'rgb(229, 177, 181)';
+            case 'nature':
+                return 'rgb(199, 221, 182)';
+            case 'psychic':
+                return 'rgb(214, 199, 215)';
+            case 'summoning':
+                return 'rgb(174, 175, 172)';
+            case 'water':
+                return 'rgb(183, 218, 232)';
+            default:
+                return 'white';
+        }
+    }
+
+    nodeColor(n: Spell): string {
+        if (!this.player()?.spells?.[n.id]) {
+            return 'white';
+        }
+        if (n.family == 'common') {
+            const [depA, depB] = n.dependencies;
+            const depASplitted = depA?.split('-')[0];
+            const depBSplitted = depB?.split('-')[0];
+            if (!depASplitted || !depBSplitted) {
+                return '#ddd';
+            }
+            const colorA = this.familyColor(depASplitted);
+            const colorB = this.familyColor(depBSplitted);
+
+            return `linear-gradient(90deg, ${colorA}, ${colorB})`;
+        }
+        return this.familyColor(n.family);
     }
 
     @HostListener('window:resize')

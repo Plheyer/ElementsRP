@@ -48,7 +48,7 @@
             </div>
         </div>
         <div class="graph">
-            <app-graph></app-graph>
+            <app-graph (buy)="buy($event)" [player]="player()"></app-graph>
         </div>
     </div>
 </div>
