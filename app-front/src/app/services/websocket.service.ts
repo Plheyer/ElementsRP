@@ -12,7 +12,7 @@ export class WebsocketService {
     connect(): void {
         if (this.ws) return;
 
-        this.ws = new WebSocket(`ws://${BASE_PATH}:${WS_PORT}`);
+        this.ws = new WebSocket(`wss://${BASE_PATH}:${WS_PORT}`);
 
         this.ws.onopen = () => this.connected.set(true);
         this.ws.onclose = () => this.connected.set(false);

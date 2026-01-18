@@ -11,9 +11,10 @@ import {
     checkStarSpellRequirements,
 } from '@elementsrp/shared';
 
-const wss = new WebSocketServer({ port: WS_PORT });
+const port = Number(process.env.PORT || WS_PORT);
+const wss = new WebSocketServer({ port: port });
 
-console.log(`🟢 WebSocket server running on ws://${BASE_PATH}:${WS_PORT}`);
+console.log(`🟢 WebSocket server running on wss://${BASE_PATH}:${port}`);
 
 const gameState: { password: string | null; players: Player[] } = {
     password: null,
