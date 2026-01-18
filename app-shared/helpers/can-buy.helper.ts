@@ -1,5 +1,5 @@
-import { Player, Spell } from 'app-shared/models';
-import { SPELLS } from '..';
+import { Player, Spell } from '../models';
+import { SPELLS } from '../data';
 
 export function canBuySpell(player: Player, spell: Spell): boolean {
     for (const depId of spell?.dependencies || []) {

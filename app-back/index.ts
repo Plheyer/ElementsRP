@@ -7,11 +7,9 @@ import {
     SPELLS,
     BASE_PATH,
     WS_PORT,
-} from '@elementsrp/shared';
-import {
     canBuySpell,
     checkStarSpellRequirements,
-} from '@elementsrp/shared/helpers';
+} from '@elementsrp/shared';
 
 const wss = new WebSocketServer({ port: WS_PORT });
 
