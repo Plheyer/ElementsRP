@@ -5,7 +5,7 @@
         "esModuleInterop": true,
         "moduleResolution": "node",
         "target": "ES2022",
-        "module": "ES2022"
+        "module": "commonjs"
     },
     "include": ["*.ts"]
 }

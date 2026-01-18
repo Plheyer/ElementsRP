@@ -23,7 +23,7 @@ let gameMaster: WebSocket[] = [];
 
 function broadcast(message: ServerMessage) {
     const data = JSON.stringify(message);
-    wss.clients.forEach((client) => {
+    wss.clients.forEach((client: WebSocket) => {
         if (client.readyState === WebSocket.OPEN) client.send(data);
     });
 }
@@ -32,10 +32,10 @@ function send(ws: WebSocket, message: ServerMessage) {
     ws.send(JSON.stringify(message));
 }
 
-wss.on('connection', (ws) => {
+wss.on('connection', (ws: WebSocket) => {
     console.log('🔌 Client connected');
 
-    ws.on('message', (raw) => {
+    ws.on('message', (raw: WebSocket.RawData) => {
         let msg: ClientMessage;
         try {
             msg = JSON.parse(raw.toString());
