@@ -56,7 +56,6 @@ export class PlayerSetupComponent {
                 const msg = this.websocketService.messages();
                 if (!msg) return;
                 this.joinAcknowledged.set(true);
-                console.log(msg);
 
                 switch (msg.type) {
                     case 'players':

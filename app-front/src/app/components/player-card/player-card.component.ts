@@ -28,8 +28,6 @@ export class PlayerCardComponent {
             playerId: this.player().id,
             amount: this.experienceControl.value,
         });
-        console.log(this.experienceControl.value);
-
         this.experienceControl.setValue(0);
     }
 

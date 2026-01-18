@@ -8,7 +8,8 @@
 }
 
 .modal-card {
-    width: 380px;
+    width: 80vw;
+    max-width: 380px;
     background: #fffdf8;
     border: 3px solid #111;
     border-radius: 16px;
@@ -31,7 +32,6 @@
     line-height: 1;
     color: #333;
     transition: color 0.2s;
-
     &:hover {
         color: #000;
     }
@@ -47,7 +47,6 @@
         width: 90px;
         height: 90px;
     }
-
     .star {
         width: 40px;
         height: 40px;
@@ -72,6 +71,10 @@
     }
 }
 
+.buy-btn-container {
+    position: relative;
+}
+
 .buy-btn {
     margin-top: 14px;
     padding: 6px 14px;
@@ -81,14 +84,82 @@
     width: 100%;
     background-color: transparent;
     padding: 10px 0;
-    transition: background-color 0.2s ease-in-out;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+
+    .btn-text {
+        transition: opacity 0.3s ease;
+    }
+
+    .success-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-weight: bold;
+        color: #2d8f2d;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    &.buying {
+        background: linear-gradient(135deg, #d4f1d4 0%, #b8e6b8 100%);
+        border-color: #2d8f2d;
+        animation: btnPulse 0.6s ease;
+
+        .btn-text {
+            opacity: 0;
+        }
+
+        .success-text {
+            opacity: 1;
+            animation: successPop 0.4s ease;
+        }
+    }
+
     &:disabled {
         cursor: not-allowed;
         opacity: 0.6;
     }
-    &:hover:not(:disabled) {
+
+    &:hover:not(:disabled):not(.buying) {
         background-color: rgb(224, 224, 224);
-        transition: background-color 0.2s ease-in-out;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    &:active:not(:disabled):not(.buying) {
+        transform: translateY(0);
+    }
+}
+
+.particles {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1px;
+    height: 1px;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ffd700 0%, #ff8c00 100%);
+    animation: particle-burst 0.8s ease-out forwards;
+    opacity: 0;
+
+    $angles: 30deg, 60deg, 90deg, 120deg, 150deg, 180deg, 210deg, 240deg, 270deg,
+        300deg, 330deg, 360deg;
+
+    @for $i from 1 through 12 {
+        &[style*="--i: #{$i}"] {
+            --angle: #{nth($angles, $i)};
+            animation-delay: calc(var(--i) * 0.02s);
+        }
     }
 }
 
@@ -100,6 +171,51 @@
     to {
         transform: scale(1);
         opacity: 1;
+    }
+}
+
+@keyframes btnPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes successPop {
+    0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes particle-burst {
+    0% {
+        transform: translate(0, 0) scale(0);
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(
+                calc(cos(var(--angle)) * 80px),
+                calc(sin(var(--angle)) * 80px)
+            )
+            scale(0.3);
+        opacity: 0;
     }
 }
 

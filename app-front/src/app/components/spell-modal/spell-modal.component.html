@@ -34,12 +34,19 @@
 
         <div class="separator"></div>
 
-        <button
-            class="buy-btn"
-            [disabled]="!canBuy()?.(spell().id)"
-            (click)="buy.emit(spell().id)"
-        >
-            Maîtrise : 1 point de savoir
-        </button>
+        <div class="buy-btn-container">
+            <button
+                #buyBtn
+                class="buy-btn"
+                [class.buying]="buying()"
+                [disabled]="!canBuy()?.(spell().id)"
+                (click)="onBuy()"
+            >
+                <span class="btn-text">Maîtrise : 1 point de savoir</span>
+                @if (buying()) {
+                <span class="success-text">✓ Maîtrisé !</span>
+                }
+            </button>
+        </div>
     </div>
 </div>
