@@ -10,11 +10,33 @@ import {
     canBuySpell,
     checkStarSpellRequirements,
 } from '@elementsrp/shared';
+import http from 'http';
 
 const port = Number(process.env.PORT || WS_PORT);
-const wss = new WebSocketServer({ port: port });
 
-console.log(`🟢 WebSocket server running on wss://${BASE_PATH}:${port}`);
+const server = http.createServer((req, res) => {
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.end(`
+    <!doctype html>
+    <html>
+      <head>
+        <meta http-equiv="refresh" content="300">
+        <title>Serveur démarré</title>
+      </head>
+      <body></body>
+    </html>
+  `);
+});
+
+server.listen(port, () => {
+    console.log('Server running on port', port);
+});
+
+const wss = new WebSocketServer({ server });
+
+console.log(
+    `🟢 WebSocket server running on wss://${process.env.BASE_PATH || BASE_PATH}:${port}`,
+);
 
 const gameState: { password: string | null; players: Player[] } = {
     password: null,
